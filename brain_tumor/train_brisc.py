@@ -23,12 +23,12 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", type=str, 
                         default=r"D:\mediscanai\outputs\brisc_model",
                         help="where to save models and logs")
-    parser.add_argument("--img_size", type=int, default=224)
-    parser.add_argument("--batch_size", type=int, default=32)
-    parser.add_argument("--epochs", type=int, default=25)
+    parser.add_argument("--img_size", type=int, default=384)  # Increased for 5090
+    parser.add_argument("--batch_size", type=int, default=64)  # Increased for 5090
+    parser.add_argument("--epochs", type=int, default=50)  # More epochs for better training
     parser.add_argument("--lr", type=float, default=1e-4)
     parser.add_argument("--val_split", type=float, default=0.2)
-    parser.add_argument("--num_workers", type=int, default=4)
+    parser.add_argument("--num_workers", type=int, default=8)  # More workers for faster data loading
     parser.add_argument("--pretrained", action='store_true', default=True,
                         help="use imagenet pretrained backbone")
     parser.add_argument("--resume", type=str, default=None, 
